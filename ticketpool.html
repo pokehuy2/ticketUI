@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="ADETicketStyle.css">
+    <link rel="stylesheet" href="ADEStyle.css">
+    <script src="jquery.min.js"></script>
+    <script src="slick.min.js"></script>
+    <script src="ADETicket.js"></script>
+    <title>Document</title>
+
+</head>
+<body>
+    <div class="ADETicketPoolBody">
+        <div class="ADETicketFilterSection">
+            <div class="ADETicketFilterItem">
+                <div class="ADETicketFilterTitle">Chọn theo địa danh</div>
+                <div class="ADELine"></div>
+                <div class="ADETicketFilterContentWrap">
+                    <div class="ADETicketFilterContent">
+                        <input type="checkbox" id="phuquoc">
+                        <label for="phuquoc">Phú Quốc</label>
+                    </div>
+                    <div class="ADETicketFilterContent">
+                        <input type="checkbox" id="halong">
+                        <label for="halong">Hạ Long</label>
+                    </div>
+                    <div class="ADETicketFilterContent">
+                        <input type="checkbox" id="hoian">
+                        <label for="hoian">Hội An</label>
+                    </div>
+                    <div class="ADETicketFilterContent">
+                        <input type="checkbox" id="danang">
+                        <label for="danang">Đà Nẵng</label>
+                    </div>
+                </div>
+            </div>
+            <div class="ADETicketFilterItem">
+                <div class="ADETicketFilterTitle">Chọn theo khoảng giá</div>
+                <div class="ADELine"></div>
+                <div class="ADETicketFilterContentWrap">
+                    <div class="ADETicketFilterContent">
+                        <input type="checkbox" id="lowest">
+                        <label for="lowest">0 - 500,000đ</label>
+                    </div>
+                    <div class="ADETicketFilterContent">
+                        <input type="checkbox" id="lower">
+                        <label for="lower">501,000đ - 1,000,000đ</label>
+                    </div>
+                    <div class="ADETicketFilterContent">
+                        <input type="checkbox" id="normal">
+                        <label for="normal">1,000,001đ - 1,500,000đ</label>
+                    </div>
+                    <div class="ADETicketFilterContent">
+                        <input type="checkbox" id="high">
+                        <label for="high">1,500,001đ - 2,000,000đ</label>
+                    </div>
+                </div>
+            </div>
+            <div class="ADETicketFilterItem">
+                <div class="ADETicketFilterTitle">Chọn theo loại vé</div>
+                <div class="ADELine"></div>
+                <div class="ADETicketFilterContentWrap">
+                    <div class="ADETicketFilterContent">
+                        <input type="checkbox" id="park">
+                        <label for="park">Công viên</label>
+                    </div>
+                    <div class="ADETicketFilterContent">
+                        <input type="checkbox" id="zoo">
+                        <label for="zoo">Vườn thú</label>
+                    </div>
+                    <div class="ADETicketFilterContent">
+                        <input type="checkbox" id="aqua">
+                        <label for="aqua">Thủy cung</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ADETicketContentSection">
+            <div class="ADETicketSortSection">
+                <div>Tổng số <b>6</b> kết quả</div>
+                <div class="ADETicketSortBox">
+                    <div class="ADETicketSortBoxCurrent">Sắp xếp theo <i class="ADETicketArrowDownIcon"></i></div>
+                    <div class="ADETicketSortBoxOptions" style="display: none">
+                        <div class="ADETicketSortBoxOption">Giá tăng dần</div>
+                        <div class="ADETicketSortBoxOption">Giá giảm dần</div>
+                    </div>
+                </div>
+            </div>
+            <div class="ADETicketResultList">
+                <div class="ADETicketItem">
+                    <div class="ADETicketItemLocation">Phú Quốc</div>
+                    <img class="ADETicketItemImage" src="images/Vinwonderphuquoc.jpg" alt="">
+                    <div class="ADETicketItemTitle">Vé VinWonder Phú Quốc</div>
+                    <div class="ADETicketItemPrice">950,000 đ</div>
+                </div>
+                <div class="ADETicketItem">
+                    <div class="ADETicketItemLocation">Phú Quốc</div>
+                    <img class="ADETicketItemImage" src="images/Vinpearlsafariphuquoc.jpg" alt="">
+                    <div class="ADETicketItemTitle">Vé Vin Pearl Safari Phú Quốc</div>
+                    <div class="ADETicketItemPrice">800,000 đ</div>
+                </div>
+                <div class="ADETicketItem">
+                    <div class="ADETicketItemLocation">Hội An</div>
+                    <img class="ADETicketItemImage" src="images/Vinwondernamhoian.jpg" alt="">
+                    <div class="ADETicketItemTitle">Vé VinWonder Nam Hội An</div>
+                    <div class="ADETicketItemPrice">780,000 đ</div>
+                </div>
+                <div class="ADETicketItem">
+                    <div class="ADETicketItemLocation">Hạ Long</div>
+                    <img class="ADETicketItemImage" src="images/Sunworldhalong.jpg" alt="">
+                    <div class="ADETicketItemTitle">Vé VinWonder Phú Quốc</div>
+                    <div class="ADETicketItemPrice">580,000 đ</div>
+                </div>
+                <div class="ADETicketItem">
+                    <div class="ADETicketItemLocation">Đà Nẵng</div>
+                    <img class="ADETicketItemImage" src="images/Sunworldbana.jpg" alt="">
+                    <div class="ADETicketItemTitle">Vé SunWorld Bà Nà</div>
+                    <div class="ADETicketItemPrice">950,000 đ</div>
+                </div>
+                <div class="ADETicketItem">
+                    <div class="ADETicketItemLocation">Đà Nẵng</div>
+                    <img class="ADETicketItemImage" src="images/Asiaparkdanang.jpg" alt="">
+                    <div class="ADETicketItemTitle">Vé AsiaPark Đà Nẵng</div>
+                    <div class="ADETicketItemPrice">550,000 đ</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,678 @@
+*{
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ticket pool body */
+
+.ADETicketDetailBody,
+.ADETicketCustomerBody,
+.ADETicketPoolBody{
+    max-width: 1140px;
+    margin: auto;
+}
+
+.ADETicketCustomerBody,
+.ADETicketPoolBody {
+    display: flex;
+    gap: 20px;
+}
+
+.ADETicketFilterSection{
+    border-radius: 5px;
+    min-width: 20%;
+    padding: 10px;
+}
+
+.ADETicketFilterTitle {
+    font-size: 16px;
+    font-weight: 700;
+    padding-left: 5px;
+    line-height: 20px;
+    margin: 10px 0;
+}
+
+.ADETicketFilterContent {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 8px 3px 8px 0;
+    margin: 5px 0;
+}
+
+.ADETicketFilterContent:hover {
+    background: rgb(244, 246, 248);
+    border-radius: 5px;
+}
+
+.ADETicketFilterContentWrap input {
+    width: 16px;
+    height: 16px;
+    accent-color: #5522bb;
+}
+
+.ADETicketFilterContentWrap label {
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-between;
+}
+
+.ADETicketContentSection{
+    width: 100%;
+}
+
+.ADETicketSortSection{
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 60px;
+    border-radius: 5px;
+}
+
+.ADETicketSortBox{
+    /* position: relative; */
+}
+
+.ADETicketSortBox {
+    display: inline-block;
+    background:#ffffff;
+    top: 10px;
+    right: 10px;
+    border-radius: 5px;
+    border: 1px solid #5522bb;
+    cursor: pointer;
+    position: absolute;
+    z-index: 2;
+}
+
+.ADETicketSortBoxCurrent {
+    padding: 10px;
+}
+
+.ADETicketSortBoxOption:hover,
+.ADETicketSortBoxCurrent:hover{
+    background: #5522bb;
+    color: #ffffff;
+}
+
+.ADETicketSortBoxOptions {
+    border-radius: 5px;
+}
+
+.ADETicketSortBoxOption {
+    padding: 10px;
+}
+
+.ADETicketResultList{
+    margin-top: 15px;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.ADETicketItem{
+    position: relative;
+    border-radius: 5px;
+    height: 300px;
+    flex: 1 0 31%;
+    box-shadow: 3px 6px 12px rgba(0,0,0,.1);
+    min-width: 220px;
+    cursor: pointer;
+}
+
+.ADETicketItem:hover{
+    box-shadow: 5px 8px 20px rgba(0,0,0,.3);
+}
+
+.ADETicketItemLocation{
+    background: linear-gradient(101.95deg, #ffa6cd -15.11%, #d15fd1 39.54%, #ad27d5 101.84%);
+    padding: 3px 6px;
+    border-radius: 3px;
+    position: absolute;
+    color: #ffffff;
+    top: 3px;
+    left: 8px;
+}
+
+.ADETicketItemImage{
+    width: 100%;
+    height: 200px;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.ADETicketItemTitle{
+    font-size: 18px;
+    margin-left: 5px;
+}
+
+.ADETicketItemPrice{
+    position: absolute;
+    font-size: 18px;
+    color: #5522bb;
+    margin-right: 5px;
+    bottom: 5px;
+    right: 5px;
+}
+
+/* ticket details body */
+
+.ADETicketSlide {
+    margin: 20px 0;
+}
+
+.ADETicketSlideImage {
+    max-height: 250px;
+    margin: 0 3px;
+    width: 100%;
+    border-radius: 16px;
+}
+
+.ADETicketSlideImage>img {
+    border-radius: 16px;
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.slick-prev::before,.slick-next::before {
+    content:''!important;
+}
+
+.slick-prev,
+.slick-next{
+    background: #ffffff center no-repeat!important;
+    box-shadow: 3px 6px 12px rgba(0,0,0,.1)!important;
+    border-radius: 50%;
+    width: 50px!important;
+    height: 50px!important;
+    z-index: 2 !important;
+}
+
+.slick-prev{
+    left: -25px !important;
+    background-image: url('data:image/svg+xml,<svg width="15" height="25" viewBox="0 0 15 25" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M14.5002 0.365606C13.9479 -0.121869 13.0548 -0.121869 12.5039 0.365606L0.827272 10.6951C0.565896 10.9228 0.357771 11.1968 0.215554 11.5005C0.0733374 11.8043 -5.04573e-07 12.1313 -5.04573e-07 12.4619C-5.04573e-07 12.7924 0.0733374 13.1195 0.215554 13.4232C0.357771 13.7269 0.565896 14.001 0.827272 14.2287L12.5884 24.6344C12.8553 24.8669 13.2088 24.9976 13.5771 25C13.9453 25.0023 14.3007 24.876 14.5711 24.6469C14.7051 24.5337 14.8122 24.3965 14.886 24.2439C14.9598 24.0912 14.9986 23.9263 15 23.7593C15.0014 23.5923 14.9654 23.4268 14.8942 23.2731C14.823 23.1194 14.7181 22.9808 14.5861 22.8657L3.82176 13.345C3.69097 13.2311 3.58682 13.094 3.51564 12.9421C3.44447 12.7902 3.40777 12.6266 3.40777 12.4612C3.40777 12.2959 3.44447 12.1323 3.51564 11.9804C3.58682 11.8285 3.69097 11.6914 3.82176 11.5775L14.5002 2.13177C14.631 2.01802 14.7351 1.88107 14.8063 1.72925C14.8774 1.57743 14.9141 1.41392 14.9141 1.24869C14.9141 1.08345 14.8774 0.919941 14.8063 0.768122C14.7351 0.616303 14.631 0.47935 14.5002 0.365606Z" fill="%235522BB"/></svg>') !important;
+}
+.slick-next{
+    right: -25px !important;
+    background-image: url('data:image/svg+xml,<svg width="15" height="25" viewBox="0 0 15 25" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M0.49979 24.6344C1.05205 25.1219 1.94522 25.1219 2.49612 24.6344L14.1727 14.3049C14.4341 14.0772 14.6422 13.8032 14.7844 13.4995C14.9267 13.1957 15 12.8687 15 12.5381C15 12.2076 14.9267 11.8805 14.7844 11.5768C14.6422 11.2731 14.4341 10.999 14.1727 10.7713L2.41157 0.365618C2.14465 0.133064 1.79117 0.00235299 1.42292 3.14595e-05C1.05468 -0.00229007 0.699269 0.123952 0.428883 0.353118C0.294937 0.466288 0.187764 0.603458 0.113998 0.756134C0.0402326 0.908811 0.0014458 1.07374 3.96542e-05 1.24072C-0.00136649 1.40769 0.0346379 1.57315 0.105823 1.72685C0.177009 1.88056 0.28186 2.01923 0.413883 2.13428L11.1782 11.655C11.309 11.7689 11.4132 11.906 11.4844 12.0579C11.5555 12.2098 11.5922 12.3734 11.5922 12.5388C11.5922 12.7041 11.5555 12.8677 11.4844 13.0196C11.4132 13.1715 11.309 13.3086 11.1782 13.4225L0.49979 22.8682C0.369034 22.982 0.264906 23.1189 0.193749 23.2707C0.122593 23.4226 0.085897 23.5861 0.085897 23.7513C0.085897 23.9165 0.122593 24.0801 0.193749 24.2319C0.264906 24.3837 0.369034 24.5206 0.49979 24.6344Z" fill="%235522BB"/></svg>') !important;
+}
+
+.ADETicketArrowDownIcon{
+    display: inline-block;
+    height: 12px;
+    width: 22px;
+    background: url('data:image/svg+xml,<svg width="16" height="8" viewBox="0 0 16 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15 1L8 7L1 1" stroke="%235522BB" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/></svg>') no-repeat center;
+}
+
+.ADETicketArrowDownIcon.ADETicketArrowDownActive{
+    transform: rotate(180deg);
+}
+
+.ADETicketPointIcon{
+    display: inline-block;
+    height: 17px;
+    width: 15px;
+    margin-right: 5px;
+    background: url('data:image/svg+xml,<svg width="15" height="17" viewBox="0 0 15 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.66667 8.41456V12.7498C6.66667 12.9752 6.75446 13.1914 6.91074 13.3509C7.06702 13.5103 7.27899 13.5998 7.5 13.5998C7.72101 13.5998 7.93297 13.5103 8.08926 13.3509C8.24554 13.1914 8.33333 12.9752 8.33333 12.7498V8.41456C9.34504 8.20391 10.244 7.61757 10.856 6.76923C11.468 5.92088 11.7493 4.87097 11.6456 3.82303C11.5418 2.7751 11.0602 1.8038 10.2943 1.09744C9.52835 0.391088 8.53256 0 7.5 0C6.46744 0 5.47165 0.391088 4.70571 1.09744C3.93976 1.8038 3.45821 2.7751 3.35443 3.82303C3.25065 4.87097 3.53202 5.92088 4.144 6.76923C4.75598 7.61757 5.65496 8.20391 6.66667 8.41456ZM7.5 1.69922C7.99445 1.69922 8.4778 1.84878 8.88893 2.12899C9.30005 2.40921 9.62048 2.80748 9.8097 3.27346C9.99892 3.73943 10.0484 4.25218 9.95196 4.74685C9.8555 5.24153 9.6174 5.69592 9.26777 6.05256C8.91814 6.40921 8.47268 6.65208 7.98773 6.75048C7.50277 6.84888 7.00011 6.79838 6.54329 6.60536C6.08648 6.41235 5.69603 6.08549 5.42133 5.66613C5.14662 5.24676 5 4.75372 5 4.24935C5 3.57301 5.26339 2.92438 5.73223 2.44614C6.20107 1.96789 6.83696 1.69922 7.5 1.69922ZM11.0083 10.5567C10.8989 10.5332 10.786 10.532 10.6761 10.5531C10.5662 10.5741 10.4615 10.6171 10.3678 10.6794C10.2742 10.7418 10.1935 10.8223 10.1304 10.9165C10.0673 11.0107 10.023 11.1166 10 11.2282C9.97702 11.3398 9.97582 11.455 9.99646 11.5671C10.0171 11.6792 10.0592 11.7861 10.1203 11.8816C10.1815 11.9771 10.2604 12.0594 10.3528 12.1237C10.4451 12.1881 10.5489 12.2333 10.6583 12.2568C12.55 12.6393 13.3333 13.3278 13.3333 13.5998C13.3333 14.0929 11.2917 15.2999 7.5 15.2999C3.70833 15.2999 1.66667 14.0929 1.66667 13.5998C1.66667 13.3278 2.45 12.6393 4.34167 12.2228C4.4511 12.1993 4.55494 12.1541 4.64725 12.0897C4.73956 12.0254 4.81853 11.9431 4.87967 11.8476C4.9408 11.752 4.98289 11.6452 5.00354 11.5331C5.02418 11.421 5.02298 11.3058 5 11.1942C4.97702 11.0826 4.93271 10.9767 4.8696 10.8825C4.80649 10.7883 4.72581 10.7078 4.63218 10.6454C4.53855 10.5831 4.43379 10.5401 4.32389 10.5191C4.21399 10.498 4.1011 10.4992 3.99167 10.5227C1.45833 11.1177 0 12.2313 0 13.5998C0 15.8354 3.775 17 7.5 17C11.225 17 15 15.8354 15 13.5998C15 12.2313 13.5417 11.1177 11.0083 10.5567Z" fill="%235522BB"/></svg>') no-repeat center;
+}
+
+.ADETicketSortBoxCurrent:hover .ADETicketArrowDownIcon {
+    background: url('data:image/svg+xml,<svg width="16" height="8" viewBox="0 0 16 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15 1L8 7L1 1" stroke="white" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/></svg>') no-repeat center;
+}
+
+.ADETicketDetailContent{
+    display: flex;
+    gap: 30px;
+    margin: 15px 0;
+}
+
+.ADETicketCustomerMainSection,
+.ADETicketDetailMainSection{
+    width: 70%;
+}
+
+.ADETicketCustomerAsideSection,
+.ADETicketDetailAsideSection{
+    width: 30%;
+}
+
+.ADETicketCard {
+    border-radius: 15px;
+    border: 1px solid lightgray;
+    margin: 15px 0;
+    box-shadow: 1px 6px 12px rgba(0, 0, 0, .1);
+}
+
+.ADETicketDetailGroup{
+    padding: 15px;
+}
+
+.ADETicketDetailName {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.ADETicketDetailAddress {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: gray;
+}
+
+.ADETicketDetailDescription{
+
+}
+
+.ADETicketExpandButtonSection{
+    text-align: center;
+}
+
+.ADETicketBackButton,
+.ADETicketExpandButton {
+    display: inline-block;
+    font-size: 13.5px;
+    height: 30px;
+    font-weight: 600;
+    border: 2px solid #5522bb;
+    color: #5522bb;
+    background: #ffffff;
+    cursor: pointer;
+    border-radius: 15px;
+    padding: 5px;
+}
+
+.ADETicketBackButton:hover,
+.ADETicketExpandButton:hover {
+    background: #5522bb;
+    color: #ffffff;
+}
+
+.ADETicketOption{
+    border: 1px solid lightgray;
+    border-radius: 15px;
+    margin-top: 15px;
+    flex-direction: column;
+}
+
+.ADETicketOption:hover {
+    border: 1px solid #5522bb;
+}
+
+.ADETicketOptionHeader
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+}
+
+.ADETicketTitle {
+    font-weight: 600;
+}
+
+.ADETicketDate {
+    color: #808080;
+}
+
+.ADETicketArrowDownSection {
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 3px;
+    background-color: rgb(244, 246, 248);
+    margin-left: 5px;
+}
+
+.ADETicketOptionPolicy{
+    font-size: 14px;
+}
+
+.ADETicketOptionPolicy .ADETicketPolicyTitle{
+    font-weight: 600;
+    margin: 10px 0 5px 0;
+}
+
+.ADETicketOptionPolicy .ADETicketPolicyContent{
+    padding-left: 10px;
+}
+
+.ADETicketOptionPolicy,
+.ADETicketOptionContentWrap {
+    padding: 10px 15px;
+}
+
+.ADETicketOptionContent {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+}
+
+.ADETicketMinorInfo{
+    margin-top: 3px;
+    font-style: italic;
+    text-align: right;
+    font-size: 12px;
+    color: gray;
+}
+
+.ADETicketMinus,
+.ADETicketPlus{
+    width: 30px;
+    height: 30px;
+    font-size: 18px;
+    border: 2px solid #5522bb;
+    border-radius: 5px;
+    background: #ffffff;
+    color:#5522bb;
+    cursor: pointer;
+}
+
+.ADETicketMinus:hover,
+.ADETicketPlus:hover{
+    background: #5522bb;
+    color: #ffffff;
+}
+
+.ADETicketQuantityInput{
+    width: 35px;
+    height: 28px;
+    font-size: 18px;
+    border: none;
+    text-align: center ;
+}
+
+.ADETicketOptionContentType,
+.ADETicketOptionContentType .ADETicketMinorInfo{
+    text-align: left;
+}
+
+.ADETicketOptionContentPrice,
+.ADETicketOptionContentQuantity
+{
+    text-align: right;
+}
+
+.ADETicketOptionContentWrap .ADELineGray{
+    margin: 6px 0 10px 0;
+}
+
+.ADETicketOptionFooter{
+    padding: 10px 15px 15px;
+}
+
+.ADETicketOptionSelect,
+.ADETicketBookingButton
+{
+    border: none;
+    background: linear-gradient(101.95deg, #ffa6cd -15.11%, #d15fd1 39.54%, #ad27d5 101.84%);
+    color: #ffffff;
+    height: 36px;
+    font-size: 18px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.ADETicketOptionSelect{
+    width: 105px;
+}
+
+.ADETicketHint{
+    margin-bottom: 10px;
+}
+
+.ADETicketPriceHint {
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.ADETicketOptionsSelectButton{
+    height: 36px;
+    border-radius: 18px;
+    border: none;
+    background: #5522bb;
+    color: #ffffff;
+    padding: 7px 15px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.ADETicketArrowLeftIcon {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin-right: 5px;
+    background: url('data:image/svg+xml,<svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.16632 4.16664H2.83869L5.58983 1.42723C5.74682 1.27044 5.83501 1.05779 5.83501 0.836054C5.83501 0.614319 5.74682 0.401665 5.58983 0.244875C5.43285 0.0880841 5.21993 0 4.99792 0C4.77591 0 4.56299 0.0880841 4.40601 0.244875L0.23761 4.40811C0.161711 4.4873 0.102216 4.58068 0.0625372 4.68288C-0.0208458 4.8856 -0.0208458 5.11298 0.0625372 5.3157C0.102216 5.4179 0.161711 5.51128 0.23761 5.59047L4.40601 9.7537C4.48351 9.83175 4.57572 9.89369 4.67731 9.93596C4.7789 9.97824 4.88787 10 4.99792 10C5.10798 10 5.21694 9.97824 5.31854 9.93596C5.42013 9.89369 5.51233 9.83175 5.58983 9.7537C5.66797 9.6763 5.72999 9.58421 5.77232 9.48274C5.81464 9.38128 5.83644 9.27244 5.83644 9.16253C5.83644 9.05261 5.81464 8.94377 5.77232 8.84231C5.72999 8.74084 5.66797 8.64875 5.58983 8.57135L2.83869 5.83194H9.16632C9.38743 5.83194 9.59948 5.74421 9.75582 5.58806C9.91217 5.43191 10 5.22012 10 4.99929C10 4.77846 9.91217 4.56667 9.75582 4.41052C9.59948 4.25437 9.38743 4.16664 9.16632 4.16664Z" fill="%235522BB"/></svg>') no-repeat center;
+}
+
+.ADETicketBackButton:hover .ADETicketArrowLeftIcon {
+    background: url('data:image/svg+xml,<svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.16632 4.16664H2.83869L5.58983 1.42723C5.74682 1.27044 5.83501 1.05779 5.83501 0.836054C5.83501 0.614319 5.74682 0.401665 5.58983 0.244875C5.43285 0.0880841 5.21993 0 4.99792 0C4.77591 0 4.56299 0.0880841 4.40601 0.244875L0.23761 4.40811C0.161711 4.4873 0.102216 4.58068 0.0625372 4.68288C-0.0208458 4.8856 -0.0208458 5.11298 0.0625372 5.3157C0.102216 5.4179 0.161711 5.51128 0.23761 5.59047L4.40601 9.7537C4.48351 9.83175 4.57572 9.89369 4.67731 9.93596C4.7789 9.97824 4.88787 10 4.99792 10C5.10798 10 5.21694 9.97824 5.31854 9.93596C5.42013 9.89369 5.51233 9.83175 5.58983 9.7537C5.66797 9.6763 5.72999 9.58421 5.77232 9.48274C5.81464 9.38128 5.83644 9.27244 5.83644 9.16253C5.83644 9.05261 5.81464 8.94377 5.77232 8.84231C5.72999 8.74084 5.66797 8.64875 5.58983 8.57135L2.83869 5.83194H9.16632C9.38743 5.83194 9.59948 5.74421 9.75582 5.58806C9.91217 5.43191 10 5.22012 10 4.99929C10 4.77846 9.91217 4.56667 9.75582 4.41052C9.59948 4.25437 9.38743 4.16664 9.16632 4.16664Z" fill="white"/></svg>') no-repeat center;
+}
+
+/* customer page */
+
+.ADETicketCustomerImageWrap {
+    width: 40%;
+}
+
+.ADETicketCustomerImageWrap img {
+    width: 100%;
+    border-radius: 15px;
+}
+
+.ADETicketSelectedTitle{
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.ADETicketSelectedInfo{
+    font-size: 14px;
+    margin: 10px 0;
+}
+
+.ADETicketBillingInfo {
+    display: flex;
+    padding: 15px 50px;
+    flex-direction: column;
+    gap: 10px;
+    border-radius: 16px;
+    background:rgb(244, 246, 248);
+}
+
+.ADETicketPaymentOption {
+    padding: 10px;
+    border-radius: 15px;
+    border: 1px solid lightgray;
+    margin-top: 10px;
+}
+
+.ADETicketPaymentTitle {
+    display: flex;
+    align-items: center;
+}
+
+.ADETicketPaymentTitle input {
+    width: 16px;
+    height: 16px;
+    accent-color: #5522bb;
+    margin: 0 20px 0 10px;
+}
+
+.ADETicketPaymentTitle label {
+    font-weight: 600;
+    line-height: 23px;
+}
+
+.ADETicketPaymentDescription {
+    font-size: 13px;
+    color: #4f6f8f;
+}
+
+.ADETicketPaymentContent {
+    padding: 10px 0 10px 50px;
+    background: #f4f6f8;
+    border-radius: 15px;
+    margin-top: 15px;
+}
+
+.ADETicketPaymentContent>div {
+    margin: 5px 0;
+}
+
+.ADETicketAsideContent{
+    padding: 15px;
+}
+
+.ADETicketResultContentItem,
+.ADETicketAsideContentItem{
+    display: flex;
+    justify-content: space-between;
+    height: 30px;
+    font-weight: 600;
+}
+
+.ADETicketAsideTotalPrice {
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    height: 35px;
+    font-weight: 700;
+    color: #5522bb
+}
+
+.ADETicketBookingButton{
+    width: 100%;
+}
+
+/* TOUR RESULT BOOKING */
+.ADETicketResultBooking {
+    max-width: 920px;
+    margin: auto;
+}
+
+.ADETicketBookingHeader {
+    margin: -15px;
+    background: #5522bb;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    padding: 15px;
+}
+
+.ADETicketBookingContent {
+    margin-top: 30px;
+}
+
+.ADETicketBookingTitle {
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+}
+
+.ADETicketResultBooking .ADETicketCode {
+    color: #000000;
+}
+
+.ADETicketBookingCodeWrap {
+    font-size: 14px;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.ADETicketBookingCodeWrap .ADETicketBookingCode {
+    font-size: 16px;
+}
+
+.ADETicketResultTitle {
+    font-weight: 600;
+    margin: 30px 0 10px 5px;
+}
+
+.ADETicketResultContent,
+.ADETicketResultBooking .ADETicketExtraInfo {
+    padding: 10px;
+}
+
+.ADETicketResultBooking .ADETicketDayBox {
+    margin-right: 5px;
+}
+
+.ADETicketResultContentItem {
+    padding: 0 20px;
+    align-items: center;
+}
+
+.ADETicketResultContentItem>span:first-child {
+    font-weight: normal;
+}
+
+/* icon, common, extend */
+
+.ADEF20MT10,
+.ADEFlex20 {
+    display: flex;
+    gap: 20px;
+}
+
+.ADEF20MT10 {
+    margin-top: 10px;
+}
+
+.ADEW50 {
+    width: 50%;
+}
+
+.ADEBorder15 {
+    border-radius: 15px;
+    border: 1px solid lightgray;
+}
+
+.ADELine {
+    height: 2px;
+    width: 100%;
+    background: linear-gradient(101.95deg, #ffa6cd -15.11%, #d15fd1 39.54%, #ad27d5 101.84%);
+}
+
+.ADELineGray {
+    height: 1px;
+    width: 100%;
+    background: lightgray
+}
+
+.ADETicketDashed{
+    border: 2px dashed #5522bb;
+    border-radius: 15px;
+    padding: 15px;
+}
+
+.ADETicketSuccessBookingIcon {
+    display: inline-block;
+    width: 39px;
+    height: 39px;
+    margin-right: 5px;
+    background: url('data:image/svg+xml,<svg width="39" height="39" viewBox="0 0 39 39" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19.5 0C8.749 0 0 8.749 0 19.5C0 30.251 8.749 39 19.5 39C30.251 39 39 30.251 39 19.5C39 8.749 30.251 0 19.5 0ZM19.5 37.2667C9.70233 37.2667 1.73333 29.2977 1.73333 19.5C1.73333 9.70233 9.70233 1.73333 19.5 1.73333C29.2977 1.73333 37.2667 9.70233 37.2667 19.5C37.2667 29.2977 29.2977 37.2667 19.5 37.2667ZM29.211 12.8223C29.549 13.1603 29.549 13.7107 29.211 14.0487L17.0777 26.182C16.9087 26.3467 16.6877 26.4333 16.4667 26.4333C16.2457 26.4333 16.0247 26.3467 15.8557 26.1777L9.789 20.111C9.451 19.773 9.451 19.2227 9.789 18.8847C10.127 18.5467 10.6773 18.5467 11.0153 18.8847L16.4667 24.3403L27.989 12.818C28.327 12.48 28.873 12.48 29.211 12.8223Z" fill="white"/></svg>') no-repeat center;
+}
+
+.ADETicketErrorBookingIcon {
+    display: inline-block;
+    width: 39px;
+    height: 39px;
+    margin-right: 5px;
+    background: url('data:image/svg+xml,<svg width="39" height="39" viewBox="0 0 39 39" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19.5 0C15.6433 0 11.8731 1.14365 8.66639 3.28634C5.45963 5.42903 2.96027 8.47451 1.48436 12.0377C0.00844908 15.6008 -0.377716 19.5216 0.374696 23.3043C1.12711 27.0869 2.9843 30.5615 5.71143 33.2886C8.43855 36.0157 11.9131 37.8729 15.6957 38.6253C19.4784 39.3777 23.3992 38.9916 26.9623 37.5156C30.5255 36.0397 33.571 33.5404 35.7137 30.3336C37.8563 27.1269 39 23.3567 39 19.5C38.9944 14.33 36.9382 9.37334 33.2824 5.71759C29.6267 2.06185 24.67 0.00559176 19.5 0ZM26.3933 24.0971C26.6979 24.4019 26.869 24.8151 26.869 25.246C26.869 25.6769 26.6979 26.0901 26.3933 26.3949C26.0833 26.6896 25.672 26.8539 25.2444 26.8539C24.8167 26.8539 24.4054 26.6896 24.0955 26.3949L19.5 21.7977L14.9045 26.3949C14.5977 26.6956 14.1852 26.864 13.7556 26.864C13.326 26.864 12.9136 26.6956 12.6068 26.3949C12.3021 26.0901 12.131 25.6769 12.131 25.246C12.131 24.8151 12.3021 24.4019 12.6068 24.0971L17.2023 19.5L12.6068 14.9029C12.4516 14.753 12.3278 14.5737 12.2426 14.3754C12.1574 14.1771 12.1126 13.9639 12.1107 13.7482C12.1089 13.5324 12.15 13.3184 12.2317 13.1187C12.3134 12.919 12.434 12.7376 12.5866 12.585C12.7392 12.4324 12.9206 12.3117 13.1203 12.23C13.32 12.1483 13.534 12.1072 13.7498 12.1091C13.9656 12.111 14.1788 12.1558 14.377 12.241C14.5753 12.3261 14.7546 12.4499 14.9045 12.6051L19.5 17.2022L24.0955 12.6051C24.2454 12.4499 24.4247 12.3261 24.623 12.241C24.8212 12.1558 25.0345 12.111 25.2502 12.1091C25.466 12.1072 25.68 12.1483 25.8797 12.23C26.0794 12.3117 26.2608 12.4324 26.4134 12.585C26.566 12.7376 26.6866 12.919 26.7683 13.1187C26.85 13.3184 26.8912 13.5324 26.8893 13.7482C26.8874 13.9639 26.8426 14.1771 26.7574 14.3754C26.6723 14.5737 26.5485 14.753 26.3933 14.9029L21.7978 19.5L26.3933 24.0971Z" fill="white"/></svg>') no-repeat center;
+}
+
+@media screen and (max-width: 768px){
+    .ADETicketPoolBody{
+        flex-direction: column;
+    }
+
+    .ADETicketFilterSection{
+        width: 100%;
+        height: 60px;
+        overflow: auto;
+    }
+}

@@ -1,0 +1,415 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head >
+    <script src="../Script/ADEProgram.js"></script>
+    <script src="../Script/ADEProgramLocal.js"></script>
+    <script type="text/javascript">
+        MainLocalSearch();
+    </script>
+    <link rel="stylesheet" href="ADEStyle.css">
+    <title></title>
+</head>
+<body>
+    <form >
+        <link rel="stylesheet" href="http://localhost:52190/Script/ADEStyle.css" />
+        <link rel="stylesheet" href="http://localhost:52190/Script/jquery-ui.min.css" />
+        <adecontent>
+            <div id="ADESearchForm">
+
+          
+                <ul class="ADETab" id="ADETabBox" >
+                    <li class="">
+                        <div><a href="#ADEAIR"><i class="ADESearchAirIcon"></i>&nbsp;Máy bay</a></div>
+                    </li>
+                    <li style="display: none">
+                        <div>
+                            <a href="#ADEVISA">Visa</a>
+                        </div>
+                    </li>
+                    <li id="liInsurance" >
+                        <div><a href="#ADEISR"><i class="ADESearchISRIcon"></i>&nbsp;Bảo Hiểm</a></div>
+                    </li>
+                    <li id="liTicket" class="ADETabLiActive" >
+                        <div><a href="#ADETICKET"><i class="ADESearchTicketIcon"></i>&nbsp;Vé vui chơi</a></div>
+                    </li>
+                </ul>
+  
+
+                <div class="ADEBody ADEMultitabs ADENoShow" id="ADEAIR" >
+                    <div class="ADEHeader">
+                        <div class="ADEHeaderTitle">
+                            <div class="ADEh2">Tìm kiếm chuyến bay</div>
+                        </div>
+                        <div class="ADEItinerary">
+                            <asp:RadioButton  type="radio" GroupName="ItineraryGroup" ID="rbtADEOneWay" Text="Một chiều" Checked="true" />
+                            <asp:RadioButton  type="radio" GroupName="ItineraryGroup" ID="rbtADERoundTrip" Text="Khứ hồi" />
+                            <span type="checkbox" id="ADEFlexiCBox" >
+                                <input type="checkbox" name="ADEFlexibelFlight" id="ADEFlexibelFlight" value="" />
+                                <label for="ADEFlexibelFlight">Tìm vé rẻ</label>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="ADEBodyContent">
+                        <div class="ADEPoints">
+                            <div class="ADEPoint">
+                                <i class="icondeparture"></i>
+                                <div>
+                                    <label class="ADEBodyLabel" for="tbADEStartPoint">Từ</label>
+                                    <asp:TextBox ID="tbADEStartPoint" autocomplete="off"  ClientIDMode="Static" placeholder="Nhập địa điểm"></asp:TextBox>
+                                </div>
+                            </div>
+                            <a id="ADESwitchButton"></a>
+                            <div class="ADEPoint">
+                                <i class="icondestination"></i>
+                                <div>
+                                    <label class="ADEBodyLabel" for="tbADEEndPoint">Đến</label>
+                                    <asp:TextBox ID="tbADEEndPoint" autocomplete="off"  ClientIDMode="Static" placeholder="Nhập địa điểm"></asp:TextBox>
+                                </div>
+                            </div>
+                            <div id="ADEPointSuggest">
+                                <div id="ADEPointModal" class="ADEMobileModal">
+                                    <div class="mobile-modal-position ADEContentModal">
+                                        <div class="ADEMobilePointFinder">
+                                            <div class="ADEMobileModalHeader">
+                                                <p>Chọn điểm đi</p>
+                                                <i class="close-button mobile-button-close-point"></i>
+                                            </div>
+                                            <input id="tbADEStartPointMB" type="text" placeholder="Tìm sân bay, thành phố" />
+                                        </div>
+                                        <div class="ADEMobilePointFinder">
+                                            <div class="ADEMobileModalHeader">
+                                                <p>Chọn điểm đến</p>
+                                                <i class="close-button mobile-button-close-point"></i>
+                                            </div>
+                                            <input id="tbADEEndPointMB" type="text" placeholder="Tìm sân bay, thành phố" />
+                                        </div>
+                                        <p>Tìm kiếm địa điểm</p>
+                                        <div id="ADEPointSuggestMobile"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+           
+                        <div class="ADETimeBox">
+                            <div class="ADETime">
+                                <i class="iconcalender"></i>
+                                <div class="ADETimeItemDep">
+                                    <label class="ADEBodyLabel">Ngày đi</label>
+                                    <asp:TextBox ID="tbADEDepDate" autocomplete="off"  ClientIDMode="Static"></asp:TextBox>
+                                </div>
+                                <div class="ADETimeItemRet" style="display: none;">
+                                    <label class="ADEBodyLabel">Ngày về</label>
+                                    <asp:TextBox ID="tbADERetDate" autocomplete="off"  ClientIDMode="Static"></asp:TextBox>
+                                </div>
+                            </div>
+                            <div class="ADEMobileModal">
+                                <div id="ADEDateSuggest" class="ADEContentModal">
+                                    <div class="ADEMobileModalHeader">
+                                        <p>Chọn ngày</p>
+                                        <i class="close-button"></i>
+                                    </div>
+                                    <div class="ADEMobileModalSubDate">
+                                        <div class="ADETimeItemMobile">
+                                            <span>Ngày đi</span>
+                                            <div id="dvADEDepDate">
+                                                <asp:Literal ID="ltADEDepDate" ></asp:Literal>
+                                            </div>
+                                        </div>
+                                        <div class="ADETimeItemMobile" style="display: none;">
+                                            <span>Ngày về</span>
+                                            <div id="dvADERetDate">
+                                                <asp:Literal ID="ltADERetDate" ></asp:Literal>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="ADEDatePickerMobile"></div>
+                                    <div class="pnfooter">
+                                        <button id="ADEButtonDateClose" class="ADEButton">Chọn</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <div class="ADEPassengerBox">
+                            <div id="ADEPassenger" class="ADEPassenger">
+                                <i class="iconperson"></i>
+                                <div class="passengerinput">
+                                    <label class="ADEBodyLabel">Số lượng khách</label>
+                                    <input id="ADEPassengerShow" type="text" title="Số lượng hành khách" value="1 người lớn" readonly="readonly" />
+                                </div>
+                            </div>
+                            <div id="ADEMobilePassenger" class="ADEMobileModal">
+                                <div id="ADEPassengerModal" class="ADEContentModal">
+                                    <div class="ADEMobileModalHeader">
+                                        <p>Chọn hành khách</p>
+                                        <i id="ADECloseButtonPN" class="close-button"></i>
+                                    </div>
+                                    <div class="pnsection">
+                                        <div class="sectionstart">
+                                            <i class="iconadult"></i>
+                                            <div class="sectioninfo">
+                                                <label>Người lớn</label>
+                                                <div class="secondaryinfo">Từ 12 tuổi</div>
+                                            </div>
+                                        </div>
+                                        <div class="sectionend">
+                                            <button id="ADEADTM">
+                                                <p>-</p>
+                                            </button>
+                                            <input type="text" id="ddlADEADT" value="1" min="0" max="7" />
+                                            <button id="ADEADTP">
+                                                <p>+</p>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="pnsection">
+                                        <div class="sectionstart">
+                                            <i class="iconchildren"></i>
+                                            <div class="sectioninfo">
+                                                <label>Trẻ em</label>
+                                                <div class="secondaryinfo">Từ 2-12 tuổi</div>
+                                            </div>
+                                        </div>
+                                        <div class="sectionend">
+                                            <button id="ADECHDM" disabled>
+                                                <p>-</p>
+                                            </button>
+                                            <input type="text" id="ddlADECHD" value="0" min="0" max="2" />
+                                            <button id="ADECHDP">
+                                                <p>+</p>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="pnsection">
+                                        <div class="sectionstart">
+                                            <i class="iconbaby"></i>
+                                            <div class="sectioninfo">
+                                                <label>Em bé</label>
+                                                <div class="secondaryinfo">Dưới 2 tuổi</div>
+                                            </div>
+                                        </div>
+                                        <div class="sectionend">
+                                            <button id="ADEINFM" disabled>
+                                                <p>-</p>
+                                            </button>
+                                            <input type="text" id="ddlADEINF" value="0" min="0" max="1" />
+                                            <button id="ADEINFP">
+                                                <p>+</p>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="pnfooter">
+                                        <button id="ADEButtonPNCount" class="ADEButton">Chọn</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                     
+                        <div id="ADEFlexiCBoxMB"  class="ADEFlexiCheckMB ADEDesktopHide">
+                            <i></i>
+                            <div class="ADEFlexiCheckMBBox">
+                                 <label for="ADEFlexibelFlightMb">Tìm vé rẻ nhất</label>
+                                 <label class="ADESwitchToggle">
+                                    <input type="checkbox" name="ADEFlexibelFlightMb" id="ADEFlexibelFlightMb"/>
+                                    <span class="ADESwitchSlider"></span>
+                                 </label>
+                            </div>
+                        </div>
+
+                        <button id="btnADESearch" class="ADEButton">
+                            Tìm kiếm
+                        </button>
+                    </div>
+                </div>
+
+
+                <div class="ADEBody ADEMultitabs ADENoShow" id="ADEISR" >
+
+                    <div class="ADEHeader">
+                        <div class="ADEItinerary" id="ddlISRType">
+                            <asp:RadioButton  type="radio" GroupName="ItineraryGroupISR" ID="DOM" Text="Du lịch nội địa" Checked="true" />
+                            <asp:RadioButton  type="radio" GroupName="ItineraryGroupISR" ID="INT" Text="Du lịch quốc tế" />
+                        </div>
+                        <div class="ADEItinerary">
+                            <span class="ADEMobileHideIB">|&nbsp;&nbsp;</span>
+                            <label>Dành cho:</label>
+                            <asp:DropDownList ID="ddlISRCusType" ClientIDMode="Static" >
+                                <asp:ListItem Text="Cá nhân" Value="PERSONAL" Selected="True"></asp:ListItem>
+                                <%--<asp:ListItem Text="Gia đình" Value="FAMILY"></asp:ListItem>--%>
+                                <asp:ListItem Text="Khách đoàn" Value="VISITORS"></asp:ListItem>
+                                <%--<asp:ListItem Text="Doanh nghiệp" Value="COMPANY"></asp:ListItem>--%>
+                            </asp:DropDownList>
+                        </div>
+                    </div>
+                   
+                    <div class="ADEBodyContent">
+                        <div class="ADEPoints">
+                            <div class="ADEPoint">
+                                <i class="ADEPointISRIcon"></i>
+                                <div>
+                                    <label class="ADEBodyLabel" for="ddlISRDeparturePlace">Nơi đi</label>
+                                    <asp:TextBox ID="ddlISRDeparturePlace"  ClientIDMode="Static" placeholder="Chọn địa điểm"></asp:TextBox>
+                                </div>
+                            </div>
+                            <a id="ADESwitchButtonISR"></a>
+                            <div class="ADEPoint">
+                                <i class="ADEPointISRIcon"></i>
+                                <div>
+                                    <label class="ADEBodyLabel" for="ddlISRArrivalPlace">Nơi đến</label>
+                                    <asp:TextBox ID="ddlISRArrivalPlace"  ClientIDMode="Static" placeholder="Chọn địa điểm"></asp:TextBox>
+                                </div>
+                            </div>
+                            <div id="ADEPointSuggestISR">
+                                <div id="ADEPointModalISR" class="ADEMobileModal">
+                                    <div class="mobile-modal-position ADEContentModal">
+                                        <div class="ADEMobilePointFinder">
+                                            <div class="ADEMobileModalHeader">
+                                                <p>Chọn điểm đi</p>
+                                                <i class="close-button mobile-button-close-point"></i>
+                                            </div>
+                                            <input id="tbADEStartPointMBISR" type="text" placeholder="Tìm địa điểm" />
+                                        </div>
+                                        <div class="ADEMobilePointFinder">
+                                            <div class="ADEMobileModalHeader">
+                                                <p>Chọn điểm đến</p>
+                                                <i class="close-button mobile-button-close-point"></i>
+                                            </div>
+                                            <input id="tbADEEndPointMBISR" type="text" placeholder="Tìm địa điểm" />
+                                        </div>
+                                        <p>Tìm kiếm địa điểm</p>
+                                        <div id="ADEPointSuggestMobileISR"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+               
+                        <div class="ADETimeBox">
+                            <div class="ADETime ADETimeRoundTrip">
+                                <i class="iconcalender"></i>
+                                <div class="ADETimeItemDep">
+                                    <label class="ADEBodyLabel">Ngày đi</label>
+                                    <asp:TextBox ID="tbISRStartDate" autocomplete="off"  ClientIDMode="Static"></asp:TextBox>
+                                </div>
+                                <div class="ADETimeItemRet">
+                                    <label class="ADEBodyLabel">Ngày về</label>
+                                    <asp:TextBox ID="tbISREndDate" autocomplete="off"  ClientIDMode="Static"></asp:TextBox>
+                                </div>
+                            </div>
+                            <div class="ADEMobileModal">
+                                <div id="ADEDateSuggestISR" class="ADEContentModal">
+                                    <div class="ADEMobileModalHeader">
+                                        <p>Chọn ngày</p>
+                                        <i class="close-button"></i>
+                                    </div>
+                                    <div class="ADEMobileModalSubDate">
+                                        <div class="ADETimeItemMobile">
+                                            <span>Ngày đi</span>
+                                            <div id="dvADEDepDateISR">
+                                                <asp:Literal ID="ltADEDepDateISR" ></asp:Literal>
+                                            </div>
+                                        </div>
+                                        <div class="ADETimeItemMobile" style="display: none;">
+                                            <span>Ngày về</span>
+                                            <div id="dvADERetDateISR">
+                                                <asp:Literal ID="ltADERetDateISR" ></asp:Literal>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="ADEDatePickerMobileISR"></div>
+                                    <div class="pnfooter">
+                                        <button id="ADEButtonDateCloseISR" class="ADEButton">Chọn</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="ADEPassengerBox">
+                            <div id="" class="ADEPassenger">
+                                <i class="iconperson"></i>
+                                <div class="passengerinput">
+                                    <label class="ADEBodyLabel">Số người</label>
+                                    <asp:TextBox type="text"  ID="tbCustomerCount" autocomplete="off" ClientIDMode="Static"></asp:TextBox>
+                                    
+                                </div>
+                                <div class="ADEChangeNumberButton">
+                                    <div class="ADEIncreaseNumber"><i class="ADEUpArrowIcon"></i></div>
+                                    <div class="ADEDecreaseNumber"><i class="ADEDownArrowIcon"></i></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button id="btnISRSearch" class="ADEButton">Tra cứu</button>
+                    </div>
+                </div>
+               
+                <div class="ADEBody ADEMultitabs" id="ADETICKET" >
+                    <div class="ADEHeader">
+                        <div class="ADEHeaderTitle">
+                            <div class="ADEh2">Tìm kiếm địa điểm</div>
+                        </div>
+                    </div>
+                   
+                    <div class="ADEBodyContent">
+                       
+                        <div class="ADETimeBox">
+                            <div class="ADETime">
+                                <i class="ADETicketIconSearch"></i>
+                                <div>
+                                    <label for="">Tìm</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="ADETimeBox">
+                            <div class="ADETime">
+                                <i class="ADETicketIconSelectType"></i>
+                                <div>select type</div>
+                            </div>
+                        </div>
+                        
+                      
+                        <div class="ADETimeBox">
+                            <div class="ADETime">
+                                <i class="iconcalender"></i>
+                                <div class="ADETimeItemDep">
+                                    <label class="ADEBodyLabel">Ngày đi</label>
+                                    <asp:TextBox ID="TextBox1" autocomplete="off"  ClientIDMode="Static"></asp:TextBox>
+                                </div>
+                            </div>
+                            <div class="ADEMobileModal">
+                                <div id="ADETicketDateSuggest" class="ADEContentModal">
+                                    <div class="ADEMobileModalHeader">
+                                        <p>Chọn ngày</p>
+                                        <i class="close-button"></i>
+                                    </div>
+                                    <div class="ADEMobileModalSubDate">
+                                        <div class="ADETimeItemMobile">
+                                            <span>Ngày đi</span>
+                                            <div id="dvADETicketDepDate">
+                                                <asp:Literal ID="Literal1" ></asp:Literal>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="ADETicketDatePickerMobile"></div>
+                                    <div class="pnfooter">
+                                        <button id="ADETicketButtonDateClose" class="ADEButton">Chọn</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button id="btnTicketSearch" class="ADEButton">Tìm vé</button>
+                    </div>
+                </div>
+
+            </div>
+
+            <div id="ADEDialogMessage" title="Thông báo">
+            </div>
+        </adecontent>
+    </form>
+</body>
+</html>
+

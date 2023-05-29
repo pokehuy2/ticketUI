@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="ADETicketStyle.css">
+    <link rel="stylesheet" href="ADEStyle.css">
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <script type="text/javascript" src="slick.min.js"></script>
+    <script type="text/javascript" src="ADETicket.js"></script>
+</head>
+
+<body>
+    <div class="ADETicketCustomerBody">
+        <div class="ADETicketCustomerMainSection">
+            <div class="ADETicketCard ADETicketDetailGroup">
+                <div class="ADEFlex20">
+                    <div class="ADETicketCustomerImageWrap"><img src="images/Vinwondernamhoian.jpg" alt=""></div>
+                    <div>
+                        <div class="ADETicketSelectedTitle">Vé VinWonder Nam Hội An</div>
+                        <div class="ADETicketSelectedInfo">Gói dịch vụ: <b>Vé VinWonder Nam Hội An không kèm Buffet</b></div>
+                        <div class="ADELine"></div>
+                        <div class="ADETicketSelectedInfo">Địa chỉ: <b>Đường Võ Chí Công, Bình Minh, Thăng Bình, Quảng Nam</b></div>
+                        <div class="ADETicketSelectedInfo">Ngày tham quan: <b>25/05/2023</b></div>
+                        <div class="ADETicketSelectedInfo">Số người: <b>03</b></div>
+                        <div class="ADETicketSelectedInfo">Tổng thanh toán: <b>1,399,000đ</b></div>
+                    </div>
+                </div>
+            </div>
+            <div class="ADETicketCard ADETicketDetailGroup">
+                <div class="ADETicketDetailName">Thông tin liên hệ</div>
+                <div class="ADEF20MT10">
+                    <div class="ADEControlBox ADEW50">
+                        <input type="text" class="ADEControl ADEBorder15" name="name" placeholder=" ">
+                        <label for="name">Họ và tên *</label>
+                    </div>
+                    <div class="ADEControlBox ADEW50">
+                        <input type="text" class="ADEControl ADEBorder15" name="address" placeholder=" ">
+                        <label for="address">Địa chỉ *</label>
+                    </div>
+                </div>
+                <div class="ADEF20MT10">
+                    <div class="ADEControlBox ADEW50">
+                        <input type="text" class="ADEControl ADEBorder15" name="tel" placeholder=" ">
+                        <label for="tel">Số điện thoại *</label>
+                    </div>
+                    <div class="ADEControlBox ADEW50">
+                        <input type="text" class="ADEControl ADEBorder15" name="email" placeholder=" ">
+                        <label for="email">Email</label>
+                    </div>
+                </div>
+                <div class="ADETicketFilterContentWrap">
+                    <div class="ADETicketFilterContent">
+                        <input type="checkbox" id="invoice">
+                        <label for="invoice">Tôi muốn xuất hóa đơn</label>
+                    </div>
+                </div>
+                <div class="ADETicketBillingInfo">
+                    <div class="ADEControlBox">
+                        <input type="text" class="ADEControl ADEBorder15" name="tel" placeholder=" ">
+                        <label for="tel">Tên công ty</label>
+                    </div>
+                    <div class="ADEControlBox">
+                        <input type="text" class="ADEControl ADEBorder15" name="tel" placeholder=" ">
+                        <label for="tel">Địa chỉ</label>
+                    </div>
+                    <div class="ADEControlBox">
+                        <input type="text" class="ADEControl ADEBorder15" name="tel" placeholder=" ">
+                        <label for="tel">Thành phố</label>
+                    </div>
+                    <div class="ADEControlBox">
+                        <input type="text" class="ADEControl ADEBorder15" name="tel" placeholder=" ">
+                        <label for="tel">Mã số thuế</label>
+                    </div>
+                    <div class="ADEControlBox">
+                        <input type="text" class="ADEControl ADEBorder15" name="tel" placeholder=" ">
+                        <label for="tel">Người nhận hóa đơn</label>
+                    </div>
+                    <div class="ADEControlBox">
+                        <input type="text" class="ADEControl ADEBorder15" name="tel" placeholder=" ">
+                        <label for="tel">Email</label>
+                    </div>
+                    <div class="ADEControlBox">
+                        <input type="text" class="ADEControl ADEBorder15" name="tel" placeholder=" ">
+                        <label for="tel">Số điện thoại</label>
+                    </div>
+                </div>
+            </div>
+            <div class="ADETicketCard ADETicketDetailGroup">
+                <div class="ADETicketDetailName">Phương thức thanh toán</div>
+                <div>
+                    <div class="ADETicketPaymentOption">
+                        <div class="ADETicketPaymentTitle">
+                            <input type="radio" id="banktransfer">
+                            <div>
+                                <label for="banktransfer">Chuyển khoản</label>
+                                <div class="ADETicketPaymentDescription">Chuyển khoản tới tài khoản ngân hàng của đại lý,
+                                    bạn cần tài khoản ngân
+                                    hàng và online banking</div>
+                            </div>
+                        </div>
+                        <div class="ADETicketPaymentContent">
+                            <div>Ngân hàng: <b>TMCP Ngoại thương Việt Nam Vietcombank</b></div>
+                            <div>Số tài khoản: <b>9823904899234</b></div>
+                            <div>Chủ tài khoản: <b>Đại lý vé máy bay Metatrip</b></div>
+                            <div>Nội dung chuyển khoản: <b>[Tên_quý_khách]_[Số_điện_thoại]</b></div>
+                        </div>
+                    </div>
+                    <div class="ADETicketPaymentOption">
+                        <div class="ADETicketPaymentTitle">
+                            <input type="radio" id="paycash">
+                            <div>
+                                <label for="paycash">Thanh toán tiền mặt</label>
+                                <div class="ADETicketPaymentDescription">
+                                    Thanh toán bằng tiền mặt trực tiếp tại đại lý
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ADETicketPaymentContent">
+                            <div>Đại lý vé máy bay: <b>Việt An</b></div>
+                            <div>Địa chỉ: <b>123 Cầu Giấy</b></div>
+                            <div>Mã số thuế <b>0123456789</b></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ADETicketCard ADETicketDetailGroup">
+                <button class="ADETicketBookingButton">Đặt vé</button>
+                <div class="ADETicketMinorInfo">Lưu ý: Kiểm tra thông tin trước khi đặt</div>
+            </div>
+        </div>
+        <div class="ADETicketCustomerAsideSection">
+            <div class="ADETicketCard ADETicketDetailGroup">
+                <div class="ADETicketHint">Thay đổi số lượng khách?</div>
+                <button class="ADETicketBackButton"><i class="ADETicketArrowLeftIcon"></i>Quay lại chi tiết vé</button>
+            </div>
+            <div class="ADETicketCard">
+                <div class="ADETicketAsideContent">
+                    <div class="ADETicketAsideTotalPrice">Chi tiết giá</div>
+                    <div class="ADETicketAsideContentItem">
+                        <span>Giá người lớn</span>
+                        <span>1 x 499,000đ</span>
+                    </div>
+                    <div class="ADETicketAsideContentItem">
+                        <span>Giá trẻ em</span>
+                        <span>0 x 399,000đ</span>
+                    </div>
+                    <div class="ADETicketAsideContentItem">
+                        <span>Giá em bé</span>
+                        <span>1 x 499,000đ</span>
+                    </div>
+                </div>
+                <div class="ADELineGray"></div>
+                <div class="ADETicketAsideContent">
+                    <div class="ADETicketAsideTotalPrice">
+                        <span>Tổng thanh toán</span>
+                        <span>1,399,000đ</span>
+                    </div>
+                    <div class="ADETicketMinorInfo">Giá trên đã bao gồm thuế</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
